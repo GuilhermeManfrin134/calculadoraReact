@@ -12,7 +12,7 @@
     cursor: pointer;
 }
 .button:active{
-    background-color: aqua;
+    background-color: rgb(182, 190, 190);
 }
 .button.double{
     grid-column: 2 span;
