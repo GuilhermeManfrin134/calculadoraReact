@@ -4,6 +4,7 @@ import "./Calculator.css"
 import Display from '../components/Display';
 import Button from '../components/Button';
 
+
 const inicialState = {
     displayValue: '0',
     clearDisplay: false,
@@ -37,7 +38,21 @@ export default class Calculator extends Component {
             const values = [...this.state.values]
 
             try{
-                values[0] = eval(`${values[0]} ${currentOperation} ${values[1]}`)
+                //values[0] = eval(`${values[0]} ${currentOperation} ${values[1]}`)
+                switch(currentOperation){
+                    case '+': 
+                        values[0] = eval(`${values[0]} ${currentOperation} ${values[1]}`) //Erro ao usar o +
+                        break;
+                    case '-': 
+                        values[0] = `${values[0]}` - `${values[1]}`
+                        break; 
+                    case '*': 
+                        values[0] = `${values[0]}` * `${values[1]}`
+                        break;
+                    case '/': 
+                        values[0] = `${values[0]}` / `${values[1]}`
+                        break;
+                }
 
                 //Corrigindo bug NaN ao clicar em Divisão '/'
                 if (isNaN(values[0]) || !isFinite(values[0])) {
